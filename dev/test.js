@@ -10,6 +10,12 @@ bitcoin.createNewTransaction(100, 'ALEXYTF865F65UUF', 'JEN776GFU56F65F4')
 // Equivalent to mining a block after creating a new tx, to include the tx
 bitcoin.createNewBlock(123123, 'JHGKBKJHBBJJHK', 'HJVNGRSGGMHGKGH');
 
+// Expect a blockchain w 2 blocks and 3 pending tx :
+bitcoin.createNewTransaction(50, 'ALEXYTF865F65UUF', 'JEN776GFU56F65F4')
+bitcoin.createNewTransaction(300, 'ALEXYTF865F65UUF', 'JEN776GFU56F65F4')
+bitcoin.createNewTransaction(2000, 'ALEXYTF865F65UUF', 'JEN776GFU56F65F4')
+
+
 // Test createNewBlock() - expect a bitcoin blocchain w 3 blocks
 // bitcoin.createNewBlock(2389, 'JHGCJHGCKHVKHGV', 'HJVKCKGHCKGH');
 // bitcoin.createNewBlock(111, 'JHGKBKJHBBJJHK', 'HJVNGRSGGMHGKGH');
