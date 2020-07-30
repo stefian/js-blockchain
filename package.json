@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/stefian/js-blockchain/issues"
   },
-  "homepage": "https://github.com/stefian/js-blockchain#readme"
+  "homepage": "https://github.com/stefian/js-blockchain#readme",
+  "dependencies": {
+    "sha256": "^0.2.0"
+  }
 }
