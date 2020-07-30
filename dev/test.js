@@ -15,6 +15,8 @@ bitcoin.createNewTransaction(50, 'ALEXYTF865F65UUF', 'JEN776GFU56F65F4')
 bitcoin.createNewTransaction(300, 'ALEXYTF865F65UUF', 'JEN776GFU56F65F4')
 bitcoin.createNewTransaction(2000, 'ALEXYTF865F65UUF', 'JEN776GFU56F65F4')
 
+// Expect the 3 tx above to be included in the 3rd block
+bitcoin.createNewBlock(86753, 'VIYVVYTUYTO7', 'NYGI76THI67');
 
 // Test createNewBlock() - expect a bitcoin blocchain w 3 blocks
 // bitcoin.createNewBlock(2389, 'JHGCJHGCKHVKHGV', 'HJVKCKGHCKGH');
