@@ -23,4 +23,4 @@ bitcoin.createNewBlock(86753, 'VIYVVYTUYTO7', 'NYGI76THI67');
 // bitcoin.createNewBlock(111, 'JHGKBKJHBBJJHK', 'HJVNGRSGGMHGKGH');
 // bitcoin.createNewBlock(2899, 'GKUYGKUYKYBKV', 'JKHVJGFDFFSGRSE');
 
-console.log(bitcoin);
+console.log(bitcoin.chain[2]);
