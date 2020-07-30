@@ -1,19 +1,19 @@
 function Blockchain() {
   this.chain = [];
-  this.newTransactions = [];
+  this.pendingTransactions = [];
 }
 
 Blockchain.prototype.createNewBlock = function (nonce, previousBlockHash, hash) {
   const newBlock = {
     index: this.chain.length + 1, // block number
     timestamp: Date.now(),
-    transactions: this.newTransactions,
+    transactions: this.pendingTransactions,
     nonce: nonce, // Proof of work - a number - proof that we created the block in a legitimate way
     hash: hash, // data from our new block - all new tx compressed in a single string
     previousBlockHash: previousBlockHash  // the data hashed of the previous block
   };
 
-  this.newTransactions = [];
+  this.pendingTransactions = [];
   this.chain.push(newBlock);
 
   return newBlock;
@@ -21,6 +21,18 @@ Blockchain.prototype.createNewBlock = function (nonce, previousBlockHash, hash) 
 
 Blockchain.prototype.getLastBlock = function () {
   return this.chain[this.chain.length - 1];
+}
+
+Blockchain.prototype.create.createNewTransaction = function (amount, sender, recipient) {
+  const newTransaction = {  // ToDo : for Cogito add commit, senderRepo, receiverRepo, receiverBranch 
+    amount: amount,
+    sender: sender,
+    receipient: recipient
+  };
+
+  this.pendingTransactions.push(newTransaction);
+
+  return this.getLastBlock()['index'] + 1;  // Return the nr / index of the new block containing the tx
 }
 
 module.exports = Blockchain;
