@@ -48,6 +48,16 @@ Blockchain.prototype.proofOfWork = function (previousBlockHash, currentBlockData
   // => uses current block data for the hash, but also the previousBlockHash
   // => continuously changes nonce value until it finds the correct hash
   // => returns to us the nonce value that creates the correct hash
+  let nonce = 0;
+  let hash = this.hashBlock(previousBlockHash, currentBlockData, nonce);
+  while (hash.substring(0, 4) !== '0000') {
+    nonce++;
+    hash = this.hashBlock(previousBlockHash, currentBlockData, nonce);
+  }
+
+  return nonce; // the nonce is the proof
+  // For Cogito to replace the nonce with the code / or last commit? 
+  // and the '0000' test with results of a number of Jest tests from project repo
 }
 
 
