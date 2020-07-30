@@ -35,4 +35,9 @@ Blockchain.prototype.createNewTransaction = function (amount, sender, recipient)
   return this.getLastBlock()['index'] + 1;  // Return the nr / index of the new block containing the tx
 }
 
+Blockchain.prototype.hashBlock = function (blockData) { // Hashing block data into a fixed lenght string
+
+}
+
+
 module.exports = Blockchain;
