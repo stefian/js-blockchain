@@ -23,7 +23,7 @@ Blockchain.prototype.getLastBlock = function () {
   return this.chain[this.chain.length - 1];
 }
 
-Blockchain.prototype.create.createNewTransaction = function (amount, sender, recipient) {
+Blockchain.prototype.createNewTransaction = function (amount, sender, recipient) {
   const newTransaction = {  // ToDo : for Cogito add commit, senderRepo, receiverRepo, receiverBranch 
     amount: amount,
     sender: sender,
