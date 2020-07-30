@@ -6,7 +6,7 @@ const previousBlockHash = 'KYKUYG76GBKG7F57I7G7F5IFI6';
 const currentBlockData = [
   {
     amount: 10,
-    sender: 'XFGBF7B9ZGF79Z7H9ZGA',
+    sender: 'XFGBF7B9ZGF79Z7H9ZG',
     recipient: 'BFS7BSF87BS8F7BS'
   },
   {
