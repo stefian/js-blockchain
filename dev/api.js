@@ -9,7 +9,8 @@ app.get('/blockchain', function (req, res) {
 
 // create a new transaction
 app.post('/transaction', function (req, res) {
-  res.send('It works!!!');
+  console.log(req.body);
+  res.send(`The amount of tx is ${req.body.amount} bitcoin`);
 });
 
 // mine a new block
