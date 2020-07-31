@@ -9,7 +9,7 @@ app.get('/blockchain', function (req, res) {
 
 // create a new transaction
 app.post('/transaction', function (req, res) {
-
+  res.send('It works!!!');
 });
 
 // mine a new block
