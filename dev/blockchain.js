@@ -3,6 +3,9 @@ const sha256 = require('sha256');
 function Blockchain() {
   this.chain = [];
   this.pendingTransactions = [];
+
+  this.createNewBlock(100, '0', '0'); // Genesis / inital block
+  // For Cogito - Genesis block should be related to the project / owner /budget info
 }
 
 Blockchain.prototype.createNewBlock = function (nonce, previousBlockHash, hash) {
@@ -53,7 +56,7 @@ Blockchain.prototype.proofOfWork = function (previousBlockHash, currentBlockData
   while (hash.substring(0, 4) !== '0000') {
     nonce++;
     hash = this.hashBlock(previousBlockHash, currentBlockData, nonce);
-    console.log(nonce, hash);
+    // console.log(nonce, hash); // for testing - listing nonces & hashes
   }
 
   return nonce; // the nonce is the proof
