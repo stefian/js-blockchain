@@ -1,29 +1,32 @@
 const Blockchain = require('./blockchain');
 const bitcoin = new Blockchain();
 
+// Expect to show the genesis block
+console.log(bitcoin);
+
 // Testing proofOfWork()
-const previousBlockHash = 'KYKUYG76GBKG7F57I7G7F5IFI6';
-const currentBlockData = [
-  {
-    amount: 10,
-    sender: 'XFGBF7B9ZGF79Z7H9ZG',
-    recipient: 'BFS7BSF87BS8F7BS'
-  },
-  {
-    amount: 30,
-    sender: 'BT8H8THA87HG8AEHPT8T8A',
-    recipient: 'ANTGUHA8GAIEUHGUAGIAA7'
-  },
-  {
-    amount: 200,
-    sender: 'DY8HDY7HS7H0S7YYSSTSTST',
-    recipient: 'N337V3JH7V3KH7V3JV73K'
-  }
-];
+// const previousBlockHash = 'KYKUYG76GBKG7F57I7G7F5IFI6';
+// const currentBlockData = [
+//   {
+//     amount: 10,
+//     sender: 'XFGBF7B9ZGF79Z7H9ZG',
+//     recipient: 'BFS7BSF87BS8F7BS'
+//   },
+//   {
+//     amount: 30,
+//     sender: 'BT8H8THA87HG8AEHPT8T8A',
+//     recipient: 'ANTGUHA8GAIEUHGUAGIAA7'
+//   },
+//   {
+//     amount: 200,
+//     sender: 'DY8HDY7HS7H0S7YYSSTSTST',
+//     recipient: 'N337V3JH7V3KH7V3JV73K'
+//   }
+// ];
 
 // Expect a hash starting with 0000
-console.log(bitcoin.hashBlock(previousBlockHash, currentBlockData, 116693));
-
+// console.log(bitcoin.hashBlock(previousBlockHash, currentBlockData, 116693));
+// 
 // Expect a nonce value for which the hash starts with 0000
 // console.log(bitcoin.proofOfWork(previousBlockHash, currentBlockData));
 
