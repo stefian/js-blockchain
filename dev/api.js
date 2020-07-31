@@ -8,7 +8,7 @@ app.get('/blockchain', function (req, res) {
 });
 
 // create a new transaction
-app.get('/transaction', function (req, res) {
+app.post('/transaction', function (req, res) {
 
 });
 
