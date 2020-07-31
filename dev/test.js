@@ -1,7 +1,7 @@
 const Blockchain = require('./blockchain');
 const bitcoin = new Blockchain();
 
-// Testing hashBlock() method
+// Testing proofOfWork()
 const previousBlockHash = 'KYKUYG76GBKG7F57I7G7F5IFI6';
 const currentBlockData = [
   {
@@ -20,10 +20,16 @@ const currentBlockData = [
     recipient: 'N337V3JH7V3KH7V3JV73K'
   }
 ];
-const nonce = 100;
 
+// Expect a nonce value for which the hash starts with 0000
+console.log(bitcoin.proofOfWork(previousBlockHash, currentBlockData));
+
+
+// // Testing hashBlock() method
+// const nonce = 100;
+// 
 // Expect a sha256 hash string
-console.log(bitcoin.hashBlock(previousBlockHash, currentBlockData, nonce));
+// console.log(bitcoin.hashBlock(previousBlockHash, currentBlockData, nonce));
 
 
 
