@@ -21,8 +21,11 @@ const currentBlockData = [
   }
 ];
 
+// Expect a hash starting with 0000
+console.log(bitcoin.hashBlock(previousBlockHash, currentBlockData, 116693));
+
 // Expect a nonce value for which the hash starts with 0000
-console.log(bitcoin.proofOfWork(previousBlockHash, currentBlockData));
+// console.log(bitcoin.proofOfWork(previousBlockHash, currentBlockData));
 
 
 // // Testing hashBlock() method
