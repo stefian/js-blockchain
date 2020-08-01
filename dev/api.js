@@ -1,5 +1,9 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.json());   // parse requests with json body
+app.use(bodyParser.urlencoded({ extended: false }));    // parse reqs with form body
 
 // Blockchain API Endpoints:
 // fetch entire blockchain
