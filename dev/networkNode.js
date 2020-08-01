@@ -55,6 +55,11 @@ app.post('/register-node', function (req, res) {
   
 });
 
+// register multiple nodes at once
+app.post('/register-nodes-bulk', function (req, res) {
+  
+});
+
 app.listen(port, () => {
   console.log(`Node listening on port ${port}...`);
 });
