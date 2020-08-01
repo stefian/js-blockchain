@@ -6,6 +6,7 @@ function Blockchain() {
   this.pendingTransactions = [];
 
   this.currentNodeUrl = currentNodeUrl;
+  this.networkNodes = [];
 
   this.createNewBlock(100, '0', '0'); // Genesis / inital block
   // For Cogito - Genesis block should be related to the project / owner /budget info
