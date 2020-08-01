@@ -45,9 +45,14 @@ app.get('/mine', function (req, res) {
 });
 
 // register a node and broadcast it to the network
-app.post('/register-and-broadcast-node', function (req, res) {
+app.post('/register-and-broadcast-node', function(req, res) {
   const newNodeUrl = req.body.newNodeUrl
   //... broadcast
+});
+
+// register a node with the network
+app.post('/register-node', function (req, res) {
+  
 });
 
 app.listen(port, () => {
