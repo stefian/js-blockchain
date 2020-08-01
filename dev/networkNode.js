@@ -46,8 +46,12 @@ app.get('/mine', function (req, res) {
 
 // register a node and broadcast it to the network
 app.post('/register-and-broadcast-node', function(req, res) {
-  const newNodeUrl = req.body.newNodeUrl
-  //... broadcast
+  const newNodeUrl = req.body.newNodeUrl;
+  // if not already present in the node network, add to network = register
+  if (bitcoin.networkNodes.indexOf(newNodeUrl) == -1) bitcoin.networkNodes.push(newNodeUrl);
+  
+  
+
 });
 
 // register a node with the network
