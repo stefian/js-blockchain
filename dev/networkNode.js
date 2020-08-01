@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const Blockchain = require('./blockchain');
 const uuid = require('uuid');
+const port = process.argv[2]; // 2nd argv  = port of the command to run networkNode.js - nodemon --watch dev -e js dev/api.js 3001
 
 const nodeAddress = uuid.v1().split('-').join(''); // generate a random string without dashes
 
@@ -43,6 +44,6 @@ app.get('/mine', function (req, res) {
   })
 });
 
-app.listen(3000, () => {
-  console.log('Blockchain API Listening on port 3000 ...');
+app.listen(port, () => {
+  console.log(`Node listening on port ${port}...`);
 });
