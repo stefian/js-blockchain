@@ -50,7 +50,10 @@ app.post('/register-and-broadcast-node', function(req, res) {
   // if not already present in the node network, add to network = register
   if (bitcoin.networkNodes.indexOf(newNodeUrl) == -1) bitcoin.networkNodes.push(newNodeUrl);
   
-  
+  bitcoin.networkNodes.forEach(networkNodeUrl => {
+    // '/register-node'
+    
+  });
 
 });
 
