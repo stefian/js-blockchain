@@ -51,10 +51,25 @@ app.post('/register-and-broadcast-node', function(req, res) {
   // if not already present in the node network, add to network = register
   if (bitcoin.networkNodes.indexOf(newNodeUrl) == -1) bitcoin.networkNodes.push(newNodeUrl);
   
+  // Register the new node with all nodes in the network
+  const regNodesPromises = [];
   bitcoin.networkNodes.forEach(networkNodeUrl => {
     // '/register-node'
-
+    const requestOptions = {
+      uri: networkNodeUrl + '/register-node',
+      method: 'POST',
+      body: { newNodeUrl: newNodeUrl },
+      json: true
+    };
+    // rp - comes from request promise
+    regNodesPromises.push(rp(requestOptions));
   });
+
+  Promise.all(regNodesPromises)
+    .then(data => {
+      // use the data... responses from the registrations from all nodes
+
+    });
 
 });
 
