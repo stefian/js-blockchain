@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const Blockchain = require('./blockchain');
 const uuid = require('uuid');
 const port = process.argv[2]; // 2nd argv  = port of the command to run networkNode.js - nodemon --watch dev -e js dev/api.js 3001
+const rp = require('request-promise');
 
 const nodeAddress = uuid.v1().split('-').join(''); // generate a random string without dashes
 
@@ -52,7 +53,7 @@ app.post('/register-and-broadcast-node', function(req, res) {
   
   bitcoin.networkNodes.forEach(networkNodeUrl => {
     // '/register-node'
-    
+
   });
 
 });
