@@ -46,11 +46,11 @@ app.get('/mine', function (req, res) {
 });
 
 // register a node and broadcast it to the network
-app.post('/register-and-broadcast-node', function(req, res) {
+app.post('/register-and-broadcast-node', function (req, res) {
   const newNodeUrl = req.body.newNodeUrl;
   // if not already present in the node network, add to network = register
   if (bitcoin.networkNodes.indexOf(newNodeUrl) == -1) bitcoin.networkNodes.push(newNodeUrl);
-  
+
   // Register the new node with all nodes in the network
   const regNodesPromises = [];
   bitcoin.networkNodes.forEach(networkNodeUrl => {
@@ -71,7 +71,7 @@ app.post('/register-and-broadcast-node', function(req, res) {
       const bulkRegisterOptions = {
         uri: newNodeUrl + '/register-nodes-bulk',
         method: 'POST',
-        body: { allNetworkNodes: [ ...bitcoin.networkNodes, bitcoin.currentNodeUrl ] },
+        body: { allNetworkNodes: [...bitcoin.networkNodes, bitcoin.currentNodeUrl] },
         json: true
       };
 
@@ -85,13 +85,18 @@ app.post('/register-and-broadcast-node', function(req, res) {
 
 // register a node with the network
 app.post('/register-node', function (req, res) {
-  
+  const newNodeUrl = req.body.newNodeUrl;
+  const nodeNotAlreadyPresent = bitcoin.networkNodes.indexOf[newNodeUrl] == -1;
+  const notCurrentNode = bitcoin.currentNodeUrl !== newNodeUrl;
+  if (nodeNotAlreadyPresent && notCurrentNode) bitcoin.networkNodes.push(newNodeUrl);
+  res.json({ note: 'New node registered successfully.' });
 });
 
 // register multiple nodes at once
 app.post('/register-nodes-bulk', function (req, res) {
-  
+
 });
+
 
 app.listen(port, () => {
   console.log(`Node listening on port ${port}...`);
