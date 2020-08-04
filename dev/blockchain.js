@@ -11,7 +11,7 @@ function Blockchain() {
 
   this.createNewBlock(100, '0', '0'); // Genesis / inital block
   // For Cogito - Genesis block should be related to the project / owner /budget info
-}
+};
 
 Blockchain.prototype.createNewBlock = function (nonce, previousBlockHash, hash) {
   const newBlock = {
@@ -27,11 +27,11 @@ Blockchain.prototype.createNewBlock = function (nonce, previousBlockHash, hash) 
   this.chain.push(newBlock);
 
   return newBlock;
-}
+};
 
 Blockchain.prototype.getLastBlock = function () {
   return this.chain[this.chain.length - 1];
-}
+};
 
 Blockchain.prototype.createNewTransaction = function (amount, sender, recipient) {
   const newTransaction = {  // ToDo : for Cogito add commit, senderRepo, receiverRepo, receiverBranch 
@@ -42,13 +42,18 @@ Blockchain.prototype.createNewTransaction = function (amount, sender, recipient)
   };
 
   return newTransaction;
-}
+};
+
+Blockchain.prototype.addTransactionToPendingTransactions = function (transactionObj) {
+  this.pendingTransactions.push(transactionObj);
+  return this.getLastBlock()['index'] + 1;  // Return the nr / index of the new block containing the tx
+};
 
 Blockchain.prototype.hashBlock = function (previousBlockHash, currentBlockData, nonce) { // Hashing block data into a fixed lenght string
   const dataAsString = previousBlockHash + nonce.toString() + JSON.stringify(currentBlockData);
   const hash = sha256(dataAsString);
   return hash;
-}
+};
 
 Blockchain.prototype.proofOfWork = function (previousBlockHash, currentBlockData) {
   // => repeatedly hash block until it finds correct hash => '0000LIAUHRIUHROEIGUHAE'
