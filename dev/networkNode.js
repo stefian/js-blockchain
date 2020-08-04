@@ -25,6 +25,11 @@ app.post('/transaction', function (req, res) {
   res.json({ note: `Transaction will be added in block ${blockIndex}` });
 });
 
+// create a new tx and broadcast it to the network
+app.post('/transaction/broadcast', function (req, res) {
+  
+});
+
 // mine a new block
 app.get('/mine', function (req, res) {
   const lastBlock = bitcoin.getLastBlock();
