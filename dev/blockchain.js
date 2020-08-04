@@ -1,5 +1,6 @@
 const sha256 = require('sha256');
 const currentNodeUrl = process.argv[3];
+const uuid = require('uuid');
 
 function Blockchain() {
   this.chain = [];
@@ -36,12 +37,11 @@ Blockchain.prototype.createNewTransaction = function (amount, sender, recipient)
   const newTransaction = {  // ToDo : for Cogito add commit, senderRepo, receiverRepo, receiverBranch 
     amount: amount,
     sender: sender,
-    receipient: recipient
+    receipient: recipient,
+    transactionId: uuid.v1().split('-').join('')  // provides an unique tx id 
   };
 
-  this.pendingTransactions.push(newTransaction);
-
-  return this.getLastBlock()['index'] + 1;  // Return the nr / index of the new block containing the tx
+  return newTransaction;
 }
 
 Blockchain.prototype.hashBlock = function (previousBlockHash, currentBlockData, nonce) { // Hashing block data into a fixed lenght string
