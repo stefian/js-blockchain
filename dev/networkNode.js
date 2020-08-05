@@ -98,6 +98,29 @@ app.get('/mine', function (req, res) {
     });
 });
 
+// /receive-new-block Endpoint used in the /mine and broadcast new block 
+app.post('/receive-new-block', function (req, res) {
+  const newBlock = req.body.newBlock;
+  const lastBlock = bitcon.getLastBlock();
+  const correctHash = lastBlock.hash === newBlock.previousBlockHash;
+  const correctIndex = lastBlock['index'] + 1 === newBlock['index'];
+
+  if (correctHash && correctIndex) {
+    bitcoin.chain.push(newBlock);
+    bitcoin.pendingTransactions = [];
+    res.json({
+      note: 'New block received and accepted.',
+      newBlock: newBlock
+    });
+  } else {
+    res.json({
+      note: 'New block rejected',
+      newBlock: newBlock
+    });
+  }
+
+});
+
 // register a node and broadcast it to the network
 app.post('/register-and-broadcast-node', function (req, res) {
   const newNodeUrl = req.body.newNodeUrl;
