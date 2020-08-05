@@ -101,7 +101,7 @@ app.get('/mine', function (req, res) {
 // /receive-new-block Endpoint used in the /mine and broadcast new block 
 app.post('/receive-new-block', function (req, res) {
   const newBlock = req.body.newBlock;
-  const lastBlock = bitcon.getLastBlock();
+  const lastBlock = bitcoin.getLastBlock();
   const correctHash = lastBlock.hash === newBlock.previousBlockHash;
   const correctIndex = lastBlock['index'] + 1 === newBlock['index'];
 
