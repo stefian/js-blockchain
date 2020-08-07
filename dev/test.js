@@ -146,6 +146,10 @@ const bc1 = {
 "networkNodes": [ ]
 }
 
+console.log('VALID: ', bitcoin.chainIsValid(bc1.chain));
+
+// END Testing chainIsValid() Method
+
 // Expect to show the genesis block
 // console.log(bitcoin);
 
