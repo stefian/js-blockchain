@@ -85,8 +85,8 @@ Blockchain.prototype.chainIsValid = function (blockchain) { // will return a boo
     if (currentBlock['previousBlockHash'] !== prevBlock['hash']) validChain = false;  // chain not valid
   
     // console log hashes for visual testing
-    console.log('previousBlockHash => ', prevBlock['hash']);
-    console.log('currentBlockHash => ', currentBlock['hash']);
+    // console.log('previousBlockHash => ', prevBlock['hash']);
+    // console.log('currentBlockHash => ', currentBlock['hash']);
   };
 
   // Validating the Genesis Block // in Cogito to validate the Project def, budget, status, tests/requirements
