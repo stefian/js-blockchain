@@ -207,6 +207,14 @@ app.get('/consensus', function (req, res) {
           newPendingTransactions = blockchain.pendingTransactions;
         };
       });
+
+      if (!newLongestChain || (newLongestChain && !bitcoin.chainIsValid(newLongestChain))) {
+        res.json({
+          note: 'Current chain has not been replaced.',
+          chain: bitcoin.chain
+        });
+      }
+
     });
 });
 
