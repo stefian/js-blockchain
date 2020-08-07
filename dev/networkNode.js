@@ -179,6 +179,12 @@ app.post('/register-nodes-bulk', function (req, res) {
   res.json({ note: 'Bulk registration successful.' });
 });
 
+// get consensus = get the blockchains from the network and compare them to the copy of local chain
+app.get('/consensus', function (req, res) {
+  bitcoin.networkNodes.forEach(networkNodeUrl => {
+
+  });
+});
 
 app.listen(port, () => {
   console.log(`Node listening on port ${port}...`);
