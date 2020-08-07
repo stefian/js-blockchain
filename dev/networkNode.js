@@ -195,7 +195,18 @@ app.get('/consensus', function (req, res) {
   Promise.all(requestPromises)
     .then(blockchains => {  // blockchains = an array of blockchainns from all the nodes in the network
       // iterate through the blockchains and see if there is one longer than the local blockchain
-      
+      const currentChainLength = bitcoin.chain.length;
+      let maxChainLength = currentChainLength;
+      let newLongestChain = null;
+      let newPendingTransactions = null;
+
+      blockchains.forEach(blockchain => {
+        if (blockchain.chain.length > maxChainLength) {
+          maxChainLength = blockchain.chain.length;
+          newLongestChain = blockchain.cain;
+          newPendingTransactions = blockchain.pendingTransactions;
+        };
+      });
     });
 });
 
