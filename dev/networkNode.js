@@ -213,7 +213,7 @@ app.get('/consensus', function (req, res) {
           note: 'Current chain has not been replaced.',
           chain: bitcoin.chain
         });
-      } else if (newLongestChain && bitcoin.chainIsValid(newLongestChain)) {
+      } else {  // = else if (newLongestChain && bitcoin.chainIsValid(newLongestChain))
         // replace the local chain with the new longest chain
         bitcoin.chain = newLongestChain;
         bitcoin.pendingTransactions = newPendingTransactions;
