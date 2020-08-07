@@ -73,5 +73,8 @@ Blockchain.prototype.proofOfWork = function (previousBlockHash, currentBlockData
   // and the '0000' test with results of a number of Jest tests from project repo
 }
 
+Blockchain.prototype.chainIsValid = function (blockchain) { // will return a boolean if blockchain is valid or not
+  
+};
 
 module.exports = Blockchain;
