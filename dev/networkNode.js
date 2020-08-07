@@ -182,8 +182,21 @@ app.post('/register-nodes-bulk', function (req, res) {
 // get consensus = get the blockchains from the network and compare them to the copy of local chain
 app.get('/consensus', function (req, res) {
   bitcoin.networkNodes.forEach(networkNodeUrl => {
+    const requestPromises = [];
+    const requestOptions = {
+      uri: networkNodeUrl + '/blockchain',
+      method: 'GET',
+      json: true
+    };
 
+    requestPromises.push(rp(requestOptions));
   });
+
+  Promise.all(requestPromises)
+    .then(blockchains => {  // blockchains = an array of blockchainns from all the nodes in the network
+      // iterate through the blockchains and see if there is one longer than the local blockchain
+      
+    });
 });
 
 app.listen(port, () => {
