@@ -222,8 +222,21 @@ app.get('/consensus', function (req, res) {
           chain: bitcoin.chain
         });
       }
-
     });
+});
+
+
+// Block Explorer / Frontend Endpoints
+app.get('/block/:blockHash', function(req, res) {  // returns the block/sprint for a blockHash provided
+  
+});
+
+app.get('/transaction/:transactionId', function(req, res) {  // returns the transaction data for the tx Id provided
+
+});
+
+app.get('/address/:address', function (req, res) {  // get all txs sent or received by an address and the balance of the address
+    
 });
 
 app.listen(port, () => {
