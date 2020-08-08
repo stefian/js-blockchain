@@ -227,8 +227,12 @@ app.get('/consensus', function (req, res) {
 
 
 // Block Explorer / Frontend Endpoints
-app.get('/block/:blockHash', function(req, res) {  // returns the block/sprint for a blockHash provided
-  
+app.get('/block/:blockHash', function(req, res) {   // returns the block/sprint for a blockHash provided
+  const blockHash = req.params.blockHash;           // eg: localhost: 3001/block/grtw67gqr6g9q65q969t
+  const correctBlock = bitcoin.getBlock(blockHash);
+  res.json({
+    block: correctBlock
+  });
 });
 
 app.get('/transaction/:transactionId', function(req, res) {  // returns the transaction data for the tx Id provided
@@ -236,7 +240,7 @@ app.get('/transaction/:transactionId', function(req, res) {  // returns the tran
 });
 
 app.get('/address/:address', function (req, res) {  // get all txs sent or received by an address and the balance of the address
-    
+
 });
 
 app.listen(port, () => {
