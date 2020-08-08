@@ -217,7 +217,7 @@ app.get('/consensus', function (req, res) {
         // replace the local chain with the new longest chain
         bitcoin.chain = newLongestChain;
         bitcoin.pendingTransactions = newPendingTransactions;
-        res, json({
+        res.json({
           note: 'This chain has been replaced',
           chain: bitcoin.chain
         });
