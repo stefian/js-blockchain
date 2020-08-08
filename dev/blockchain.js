@@ -108,7 +108,7 @@ Blockchain.prototype.getBlock = function (blockHash) {
   this.chain.forEach(block => {
     if (block.hash === blockHash) correctBlock = block;
   });
-  return correctBlock;
+  return correctBlock;  // if null => the blockHash is not found in our blockchain
 };
 
 module.exports = Blockchain;
