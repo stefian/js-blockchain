@@ -101,4 +101,9 @@ Blockchain.prototype.chainIsValid = function (blockchain) { // will return a boo
   return validChain;
 };
 
+// getBlock method for the Endpoint app.get('/block/:blockHash', )
+Blockchain.prototype.getBlock = function (blockHash) {
+  
+};
+
 module.exports = Blockchain;
