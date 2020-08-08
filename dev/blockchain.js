@@ -103,7 +103,12 @@ Blockchain.prototype.chainIsValid = function (blockchain) { // will return a boo
 
 // getBlock method for the Endpoint app.get('/block/:blockHash', )
 Blockchain.prototype.getBlock = function (blockHash) {
-  
+  //search the chain for the hash and return the block 
+  let correctBlock = null;
+  this.chain.forEach(block => {
+    if (block.hash === blockHash) correctBlock = block;
+  });
+  return correctBlock;
 };
 
 module.exports = Blockchain;
