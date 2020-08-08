@@ -111,4 +111,9 @@ Blockchain.prototype.getBlock = function (blockHash) {
   return correctBlock;  // if null => the blockHash is not found in our blockchain
 };
 
+// getTransaction method for the Endpoint app.get('/transaction/:transactionId', ...)
+Blockchain.prototype.getTransaction = function (transactionId) {
+  
+};
+
 module.exports = Blockchain;
