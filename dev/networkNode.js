@@ -236,7 +236,12 @@ app.get('/block/:blockHash', function(req, res) {   // returns the block/sprint 
 });
 
 app.get('/transaction/:transactionId', function(req, res) {  // returns the transaction data for the tx Id provided
-
+  const transactionId = req.params.transactionId;
+  const transactionData = bitcoin.getTransaction(transactionId);
+  res.json({
+    transaction: transactionData.transaction,
+    block: transactionData.block
+  })
 });
 
 app.get('/address/:address', function (req, res) {  // get all txs sent or received by an address and the balance of the address
