@@ -181,8 +181,8 @@ app.post('/register-nodes-bulk', function (req, res) {
 
 // get consensus = get the blockchains from the network and compare them to the copy of local chain
 app.get('/consensus', function (req, res) {
+  const requestPromises = [];
   bitcoin.networkNodes.forEach(networkNodeUrl => {
-    const requestPromises = [];
     const requestOptions = {
       uri: networkNodeUrl + '/blockchain',
       method: 'GET',
