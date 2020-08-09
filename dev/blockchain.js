@@ -37,7 +37,7 @@ Blockchain.prototype.createNewTransaction = function (amount, sender, recipient)
   const newTransaction = {  // ToDo : for Cogito add commit, senderRepo, receiverRepo, receiverBranch 
     amount: amount,
     sender: sender,
-    receipient: recipient,
+    recipient: recipient,
     transactionId: uuid.v1().split('-').join('')  // provides an unique tx id 
   };
 
