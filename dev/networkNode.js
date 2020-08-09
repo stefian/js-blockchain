@@ -252,6 +252,11 @@ app.get('/address/:address', function (req, res) {  // get all txs sent or recei
   });
 });
 
+// Endpoint to get the file /block-explorer/index.html 
+app.get('/block-explorer', function (req, res) {
+  res.sendFile('./block-explorer/index.html', { root: __dirname });
+});
+
 app.listen(port, () => {
   console.log(`Node listening on port ${port}...`);
 });
