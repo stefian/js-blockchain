@@ -117,7 +117,7 @@ Blockchain.prototype.getTransaction = function (transactionId) {
   let correctBlock = null;
   // Iterate through the entire blockchain and get the tx with the transactionId
   this.chain.forEach(block => {
-    block.transaction.forEach(transaction => {
+    block.transactions.forEach(transaction => {
       if (transaction.transactionId === transactionId) {
         correctTransaction = transaction;
         correctBlock = block;
