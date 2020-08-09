@@ -131,4 +131,9 @@ Blockchain.prototype.getTransaction = function (transactionId) {
   }
 };
 
+// getAddressData method for the Endpoint app.get('/address/:address', ...)
+Blockchain.prototype.getAddressData = function (address) {
+  
+};
+
 module.exports = Blockchain;
