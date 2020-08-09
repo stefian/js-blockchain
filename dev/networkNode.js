@@ -245,7 +245,11 @@ app.get('/transaction/:transactionId', function(req, res) {  // returns the tran
 });
 
 app.get('/address/:address', function (req, res) {  // get all txs sent or received by an address and the balance of the address
-
+  const address = req.params.address;
+  const addressData = bitcoin.getAddressData(address);
+  res.json({
+    addressData: addressData
+  });
 });
 
 app.listen(port, () => {
