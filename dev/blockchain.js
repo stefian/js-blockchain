@@ -133,7 +133,15 @@ Blockchain.prototype.getTransaction = function (transactionId) {
 
 // getAddressData method for the Endpoint app.get('/address/:address', ...)
 Blockchain.prototype.getAddressData = function (address) {
-  
+  // get all txs associate with this address and put them in an array
+  const addressTransactions = [];
+  this.chain.forEach(block => {
+    block.transactions.forEach(transaction => {
+      if (transaction.sender === address || transaction.recipient === address) {
+        addressTransactions.push(transaction);
+      }
+    });
+  });
 };
 
 module.exports = Blockchain;
